@@ -1,0 +1,20 @@
+.up{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-left: 0;
+    padding-left: 20px;
+}
+.up::-webkit-scrollbar{
+    display: none;
+}
+.poster1{
+    cursor: pointer;
+    max-width: 350px;
+    margin-right: 10px;
+
+}
+.poster1:hover{
+    transform: scale(0.9);
+}

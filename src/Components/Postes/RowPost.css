@@ -1,0 +1,33 @@
+.row{
+    margin-left: 10px;
+    color:#fff;
+}
+.rowTitle{
+    padding-left: 40%;
+    color: #000;
+    font-weight: 800;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-style: oblique;
+    text-decoration: underline;
+
+}
+.posters{
+    display: flex;
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-left: 0;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
+.poster{
+    cursor: pointer;
+    max-width: 350px;
+    margin-right: 10px;
+
+}
+.poster:hover{
+    transform: scale(1.5);
+}

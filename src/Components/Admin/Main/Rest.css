@@ -1,0 +1,32 @@
+.rest{
+    padding-top: 30px;
+    background-size: cover;
+    height: 100%;
+    background-color: #111;
+    width: 100%;
+}
+.buttons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.a_contents{
+    padding-top: 85px;
+    height: 100vh;
+   
+}
+.button1{
+    background-color: transparent;
+    border: none;
+    color: #eeeeee; /* Default text color */
+    font-size: 30px; /* Adjust the size of the text */
+    cursor: pointer;
+    padding: 10px 20px; /* Optional padding */
+    outline: none;
+    transition: color 0.3s ease;
+}
+.button1:hover{
+    color: #ded555;
+   
+}
