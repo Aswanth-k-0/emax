@@ -1,0 +1,22 @@
+.buttonalign{
+    display:flex;
+    align-items: left;
+    justify-content: left;
+    gap: 10px;
+    padding-top: 30px;
+}
+.button2{
+    background-color: transparent;
+    border: 2px solid white; /* White border */
+    color: white; /* White text */
+    padding: 20px 30px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 10px; /* 10-degree curve */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    outline: none;
+}
+.button2:hover{
+    background-color: #FDF1BF; /* Fill color on hover */
+    color: black; /* Change text color when filled */
+}

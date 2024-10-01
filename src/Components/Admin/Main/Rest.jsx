@@ -5,7 +5,7 @@ import Upcoming from '../Upcoming/Upcoming'
 
 function Rest() {
   const [state,setState]=useState('')
-  let component
+  let component= <NowShowing/>
   if (state==='now'){
     component = <NowShowing/>
   }else if (state==='up'){

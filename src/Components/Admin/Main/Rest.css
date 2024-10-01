@@ -7,13 +7,14 @@
 }
 .buttons{
     display:flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     gap: 10px;
 }
 .a_contents{
     padding-top: 85px;
     height: 100vh;
+    padding-left: 35px;
    
 }
 .button1{
