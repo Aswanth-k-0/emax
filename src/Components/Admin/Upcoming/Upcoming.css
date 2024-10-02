@@ -1,20 +1,46 @@
-.up{
-    display: flex;
-    padding: 20px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    padding-left: 0;
-    padding-left: 20px;
-}
-.up::-webkit-scrollbar{
-    display: none;
-}
-.poster1{
+.poster1 {
     cursor: pointer;
-    max-width: 200px;
-    margin-right: 10px;
-
+    max-width: 140px; /* Set a max width for the posters */
+    margin-right: 10px; /* Space between posters in the same row */
+    margin-bottom: 10px; /* Space between rows */
 }
-.poster1:hover{
+
+.poster1:hover {
     transform: scale(0.9);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Space between the two boxes */
+    gap: 20px; /* Space between boxes */
+    padding: 20px;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent shaded background */
+    color: white; /* Text color */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    height: 450px; /* Set a fixed height for both boxes */
+    display: flex;
+    align-items: flex-start; /* Align items to the start of the box */
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%;
+}
+
+/* Different widths for the boxes */
+.box1 {
+    flex: 1.5; /* Set width for the first box */
+    display: flex;
+    flex-wrap: wrap; /* Allow posters to wrap to the next line */
+    padding: 30px; /* Padding inside the box */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+}
+
+.box1::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.box2 {
+    flex: 1; /* Set width for the second box */
 }

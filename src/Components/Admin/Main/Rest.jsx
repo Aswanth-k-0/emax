@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './Rest.css'
 import NowShowing from '../NowShowing/NowShowing'
 import Upcoming from '../Upcoming/Upcoming'
+import Footer from '../../Footer/Footer'
 
 function Rest() {
   const [state,setState]=useState('')
@@ -25,7 +26,7 @@ function Rest() {
           {component}
         </div>
       </div>
-     
+     <Footer/>
     </div>
   )
 }
