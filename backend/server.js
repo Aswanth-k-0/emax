@@ -36,27 +36,6 @@ app.post('/save-movie', async (req, res) => {
     await client.close(); // Close the MongoDB connection
   }
 });
-// Assuming you already have a MongoDB collection set up for movies
-app.get('/movies/:type', async (req, res) => {
-  const { type } = req.params;
-  
-  try {
-    await client.connect();
-    const database = client.db('myDatabase'); // Use your database name
-    const collection = database.collection('movies'); // Use your collection name
-
-    // Retrieve data based on the type
-    const movies = await collection.find({ type }).toArray();
-    res.status(200).json(movies);
-  } catch (error) {
-    console.error('Error retrieving movies:', error);
-    res.status(500).send('Error retrieving movies');
-  } finally {
-    await client.close();
-  }
-});
-
-
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

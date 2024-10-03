@@ -2,7 +2,7 @@
     cursor: pointer;
     max-width: 140px; /* Set a max width for the posters */
     margin-right: 10px; /* Space between posters in the same row */
-    margin-bottom: 10px; /* Space between rows */
+    margin-bottom: 10px;
 }
 
 .poster1:hover {
@@ -16,9 +16,10 @@
     border-radius: 10px; /* Rounded corners */
     height: 450px; /* Set a fixed height for both boxes */
     display: flex;
-    align-items: flex-start; /* Align items to the start of the box */
     justify-content: flex-start; /* Align items to the left */
     width: 100%;
+    overflow-y: auto;
+    
 }
 
 /* Different widths for the boxes */
@@ -27,12 +28,14 @@
     display: flex;
     flex-wrap: wrap; /* Allow posters to wrap to the next line */
     padding: 30px; /* Padding inside the box */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    align-items: flex-start;
 }
 
-.box1::-webkit-scrollbar {
+.box::-webkit-scrollbar {
     display: none; /* Hide scrollbar */
 }
+
+
 
 .box2 {
     flex-direction: column;
@@ -129,4 +132,35 @@
   .close-button:hover {
     background-color: #e53935; /* Darker red on hover */
   }
-  
+  .buttonalign2 {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    margin-right: 20px;
+}
+
+.button21 {
+    font-size: 12px;
+    padding: 10px 20px;
+    background-color: transparent; /* Add your button background color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border:2px solid white;
+    outline: none;
+
+}
+
+.button21:hover {
+    background-color: #FDF1BF; 
+    color: black;
+}
+
+.post2 {
+    padding: 20px;
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    flex-grow: 1;
+}
+.post2::-webkit-scrollbar{
+  display: none;
+}
