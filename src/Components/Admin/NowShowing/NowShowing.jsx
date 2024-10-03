@@ -1,8 +1,10 @@
 import React from 'react'
 import './NowShowing.css'
-import Upcoming from '../Upcoming/Upcoming'
+import Post from '../Post/Post'
+import Search from '../Search/Search'
 
-function NowShowing() {
+
+function NowShowing(movieData) {
 
 
   return (
@@ -12,7 +14,10 @@ function NowShowing() {
         <button className="button2">Screen 2</button>
         <button className="button2">Screen 3</button>
       </div>
-      <Upcoming/>
+      <div className='container'>
+      <Post/>
+      <Search/>
+    </div>
     </div>
   )
 }
