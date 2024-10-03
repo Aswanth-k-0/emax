@@ -63,9 +63,10 @@ const saveToDatabase = async (movieToSave) => {
     <div className="post2" style={{ flex: 1 }}>
       {movieData ? (
         <>
-          <h3>{movieData.title}</h3>
+          <h3>{movieData.original_title}</h3>
           <p>{movieData.overview}</p>
           <img className="poster1" src={movieData.imageBase + movieData.poster_path} alt="poster" />
+          {console.log(movieData)}
         </>
       ) : (
         <p> </p>
