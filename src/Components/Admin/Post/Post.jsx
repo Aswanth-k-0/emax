@@ -10,7 +10,7 @@ function Post({ movieData }) {
         {/* Static movie posters */}
         {movieData.map((movie, index) => (
         <img key={index} className='poster1' src={movie.imageBase + movie.poster_path} alt={movie.title} />
-      ))}<img className='poster1' src="https://upload.wikimedia.org/wikipedia/en/1/19/Kishkindha_Kaandam.jpeg" alt="Movies" />
+      ))}
       </div>
     
   )

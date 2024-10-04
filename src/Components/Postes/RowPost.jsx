@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './RowPost.css';
-import axios from 'axios';
 
-function RowPost(props) {
-  const [movieData, setMovieData] = useState([]);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3001/get-movies?status=${props.title}`);
-        setMovieData(response.data); // Set the retrieved movie data
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
-    };
-
-    fetchMovies(); // Call the function to fetch movies
-  }, [props.title]); // Only run this effect when props.title changes
-
+function RowPost({ title, movieData }) { // Destructure both props
   return (
     <div className='row'>
-      <h2 className='rowTitle'>{props.title}</h2>
+      <h2 className='rowTitle'>{title}</h2>
       <div className="posters">
-        {movieData.map((movie, index) => (
+        {movieData && movieData.map((movie, index) => ( // Safeguard against null or undefined movieData ))}
           <img 
             key={index} 
             className='poster1' 
-            src={movie.imageBase + movie.poster_path} 
+            src={movie.imageBase + movie.poster_path} // Assuming movie has imageBase and poster_path fields
             alt={movie.title} 
           />
         ))}

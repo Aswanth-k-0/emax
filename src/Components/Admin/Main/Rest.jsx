@@ -13,7 +13,7 @@ function Rest() {
   // Function to fetch movies based on status
   const fetchMovies = async (status) => {
     try {
-      const response = await axios.get(`http://localhost:3001/get-movies?status=${status}`);
+      const response = await axios.get(`http://localhost:3001/get-movies`);
       setMovieData(response.data); // Set the retrieved movie data
     } catch (error) {
       console.error('Error fetching movies:', error);
@@ -28,11 +28,12 @@ function Rest() {
       fetchMovies('Upcoming');
     }
   },[state])
-
+  const nowShowingMovies = movieData.filter(movie => movie.type === 'Now Showing');
+  const upcomingMovies = movieData.filter(movie => movie.type === 'Upcoming');
   console.log(movieData);
-  let component =<Upcoming movieData={movieData} />
+  let component =<Upcoming movieData={upcomingMovies} />
   if (state === 'now') {
-    component = <NowShowing movieData={movieData} />;
+    component = <NowShowing movieData={nowShowingMovies} />;
   } 
 
   return (

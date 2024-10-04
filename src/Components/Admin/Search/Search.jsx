@@ -6,7 +6,7 @@ function Search() {
     const [searchTerm, setSearchTerm] = useState(''); // State to store the input value
     const [movieData, setMovieData] = useState(null); // State to store the movie info
     const [showPopup, setShowPopup] = useState(false); // State to show/hide the popup
-    const [upcoming, setUpcoming] = useState('Upcoming'); // State to store if the movie is Upcoming or Now Showing
+    const [type, settype] = useState('Upcoming'); // State to store if the movie is Upcoming or Now Showing
     const [screen, setScreen] = useState(''); // State to store selected screen if Now Showing
 
 
@@ -38,8 +38,8 @@ const saveToDatabase = async (movieToSave) => {
 };
   // Function to save the movie data
   const handleSaveMovie = () => {
-    const movieToSave = {...movieData,upcoming, // Save upcoming or now showing status
-    screen: upcoming === 'Now Showing' ? screen : null, // Add screen if Now Showing
+    const movieToSave = {...movieData,type, // Save upcoming or now showing status
+    screen: type === 'Now Showing' ? screen : null, // Add screen if Now Showing
     };
     console.log('Movie data to save:', movieToSave);
     saveToDatabase(movieToSave);// Save to MongoDB
@@ -92,21 +92,21 @@ const saveToDatabase = async (movieToSave) => {
           <input
             type="radio"
             value="Upcoming"
-            checked={upcoming === 'Upcoming'}
-            onChange={() => setUpcoming('Upcoming')}
+            checked={type === 'Upcoming'}
+            onChange={() => settype('Upcoming')}
           /> Upcoming
         </label>
         <label>
           <input
             type="radio"
             value="Now Showing"
-            checked={upcoming === 'Now Showing'}
-            onChange={() => setUpcoming('Now Showing')}
+            checked={type === 'Now Showing'}
+            onChange={() => settype('Now Showing')}
           /> Now Showing
         </label>
 
         {/* Screen selection */}
-        {upcoming === 'Now Showing' && (
+        {type === 'Now Showing' && (
           <div className="screen-selection">
             <label>
               Select Screen:
