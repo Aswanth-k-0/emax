@@ -3,13 +3,13 @@ import './Upcoming.css';
 import Post from '../Post/Post';
 import Search from '../Search/Search';
 
-function upcoming() {
+function upcoming({ movieData }) {
 
 
 
   return (
     <div className='container'>
-      <Post/>
+      <Post movieData={ movieData }/>
       <Search/>
     </div>
   );

@@ -2,35 +2,38 @@ import React, { useState, useEffect } from 'react';
 import './Rest.css';
 import NowShowing from '../NowShowing/NowShowing';
 import Footer from '../../Footer/Footer';
-import axios from 'axios';
 import Upcoming from '../Upcoming/upcoming';
+import axios from 'axios';
 
 function Rest() {
-  const [state, setState] = useState('');
+  const [state, setState] = useState('up');
   const [movieData, setMovieData] = useState([]); // State to hold movie data
+ 
 
-  useEffect(() => {
-    // Fetch movie data based on selected state
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3001/movies/${state}`);
-        setMovieData(response.data); // Set the movie data
-      } catch (error) {
-        console.error('Error fetching movie data:', error);
-      }
-    };
-
-    if (state) {
-      fetchMovies(); // Fetch movies when state changes
+  // Function to fetch movies based on status
+  const fetchMovies = async (status) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/get-movies?status=${status}`);
+      setMovieData(response.data); // Set the retrieved movie data
+    } catch (error) {
+      console.error('Error fetching movies:', error);
     }
-  }, [state]);
+  };
 
+  // Fetch movies whenever the state changes
+  useEffect(()=>{
+    if (state==='now'){
+      fetchMovies('Now Showing');
+    }else if(state==='up'){
+      fetchMovies('Upcoming');
+    }
+  },[state])
+
+  console.log(movieData);
   let component =<Upcoming movieData={movieData} />
   if (state === 'now') {
     component = <NowShowing movieData={movieData} />;
-  } else if (state === 'up') {
-    component = <Upcoming movieData={movieData} />;
-  }
+  } 
 
   return (
     <div className='rest'>

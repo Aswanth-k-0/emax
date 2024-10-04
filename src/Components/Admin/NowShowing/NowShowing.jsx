@@ -4,7 +4,7 @@ import Post from '../Post/Post'
 import Search from '../Search/Search'
 
 
-function NowShowing(movieData) {
+function NowShowing({ movieData }) {
 
 
   return (
@@ -15,7 +15,7 @@ function NowShowing(movieData) {
         <button className="button2">Screen 3</button>
       </div>
       <div className='container'>
-      <Post/>
+      <Post movieData={ movieData }/>
       <Search/>
     </div>
     </div>

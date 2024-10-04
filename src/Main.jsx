@@ -11,7 +11,7 @@ function Main() {
     <div className="App">
       <Navbar/>
       <Banner/>
-      <RowPost title='Now Showing'/>
+      <RowPost title='Now showing'/>
       <RowPost title='Upcoming'/>
       <Footer/>
     </div>
