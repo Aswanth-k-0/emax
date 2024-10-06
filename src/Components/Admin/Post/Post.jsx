@@ -10,6 +10,7 @@ const [selectedMovie, setSelectedMovie] = useState(null); // Track selected movi
 const handlePosterClick=(movie)=>{
   console.log('Poster clicked:', movie); 
   setSelectedMovie(movie);
+  console.log('Selected Movie:', movie.id)
   setShowPopup(true);
   console.log(showPopup);
 };
@@ -18,7 +19,7 @@ const handlePosterClick=(movie)=>{
  const deleteMovie = async () => {
   try {
     // Send DELETE request to the server to remove the movie
-    await axios.delete(`http://localhost:3001/delete-movie/${selectedMovie._id}`);
+    await axios.delete(`http://localhost:3001/delete-movie/${selectedMovie.id}`);
     setShowPopup(false); // Close popup after deletion
     // Optionally, trigger a fetch of the updated movie list here
   } catch (error) {

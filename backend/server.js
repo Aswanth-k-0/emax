@@ -22,7 +22,7 @@ app.post('/save-movie', async (req, res) => {
     const movieId = movieData.id; // Extract the movie ID
     console.log(`Movie Id: ${movieId}`);
     // Remove the 'id' from movieData for encryption (since id is not to be encrypted)
-    const { id, ...dataToEncrypt } = movieData;
+    const {...dataToEncrypt } = movieData;
 
     // Encrypt the rest of the movie data (excluding id)
     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(dataToEncrypt), secretKey).toString();
@@ -75,24 +75,32 @@ app.get('/get-movies', async (req, res) => {
   }
 });
 //delete route
-app.delete('/delete-movie/:id', async(req, res) => {
-  const movieId = req.params.id; // Get the movie ID from the request params
+app.delete('/delete-movie/:id', async (req, res) => {
+  const movieId = parseInt(req.params.id, 10); // Convert the movie ID from string to integer
+  console.log("Received movie ID for deletion:", movieId); // Log the movie ID for debugging
 
   try {
     await client.connect();
     const database = client.db('myDatabase');
     const collection = database.collection('movies');
 
-    // Delete the movie by its ID
-    await collection.deleteOne({ _id: new MongoClient.ObjectID(movieId) });
-    res.status(200).send('Movie deleted successfully');
+    // Find and delete the movie by its unencrypted 'id' field
+    const deleteResult = await collection.deleteOne({ id: movieId });
+
+    if (deleteResult.deletedCount === 1) {
+      res.status(200).send('Movie deleted successfully');
+    } else {
+      res.status(404).send('Movie not found');
+    }
   } catch (error) {
     console.error('Error deleting movie:', error.message);
     res.status(500).send('Error deleting movie: ' + error.message);
   } finally {
     await client.close();
   }
-  });
+});
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
