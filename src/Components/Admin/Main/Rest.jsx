@@ -30,7 +30,7 @@ function Rest() {
   },[state])
   const nowShowingMovies = movieData.filter(movie => movie.type === 'Now Showing');
   const upcomingMovies = movieData.filter(movie => movie.type === 'Upcoming');
-  console.log(movieData);
+  console.log(movieData+"this is"+movieData._id);
   let component =<Upcoming movieData={upcomingMovies} />
   if (state === 'now') {
     component = <NowShowing movieData={nowShowingMovies} />;

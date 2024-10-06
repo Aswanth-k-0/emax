@@ -25,7 +25,7 @@ function Main() {
   // Filter movies based on their type (Now Showing and Upcoming)
   const nowShowingMovies = movieData.filter(movie => movie.type === 'Now Showing');
   const upcomingMovies = movieData.filter(movie => movie.type === 'Upcoming');
-
+console.log("id is"+movieData._id);
   return (
     <div className="App">
       <Navbar />

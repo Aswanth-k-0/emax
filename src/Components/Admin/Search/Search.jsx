@@ -41,7 +41,7 @@ const saveToDatabase = async (movieToSave) => {
     const movieToSave = {...movieData,type, // Save upcoming or now showing status
     screen: type === 'Now Showing' ? screen : null, // Add screen if Now Showing
     };
-    console.log('Movie data to save:', movieToSave);
+    console.log('Movie data to save:', movieToSave.id);
     saveToDatabase(movieToSave);// Save to MongoDB
     setShowPopup(false); // Close the popup
   };
